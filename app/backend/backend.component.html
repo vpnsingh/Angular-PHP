@@ -1,0 +1,169 @@
+<div class="container">
+<div class="backend">    
+<!-- Nav pills -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="pill" href="#create">Create</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#read">Read</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#update">Update</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#delete">Delete</a>
+      </li>
+  </ul>
+  
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <br>
+    <div class="tab-pane container active" id="create">
+        <form [formGroup]='dataForm' (ngSubmit)="PostData(dataForm.value)">  
+            <div class="form-container">  
+            <h3 class="text-center">Create a new record</h3><br>
+            <div class="row">  
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+            <input type="text" formControlName='name' name='name' id='name' placeholder="Your First name" class="form-control">  
+            <div *ngIf="dataForm.controls['name'].touched && !dataForm.controls['name'].valid">  
+                    <span *ngIf="dataForm.controls['name'].hasError('required') ">  
+                    First name is required  
+                    </span>  
+            </div>  
+            </div>  
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+            <br>  
+            <input type="text" formControlName='mobile' placeholder="Your Mobile" class="form-control">  
+            <div *ngIf="dataForm.controls['mobile'].touched && !dataForm.controls['mobile'].valid">  
+                <span *ngIf="dataForm.controls['mobile'].hasError('required') ">  
+                    Mobile Number is required  
+                    </span> 
+            </div>  
+          </div>  
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <br>  
+            <input type="text" formControlName='designation' placeholder="Your Designation" class="form-control"></div>  
+            <div *ngIf="dataForm.controls['designation'].touched && !dataForm.controls['designation'].valid">  
+                <span *ngIf="dataForm.controls['designation'].hasError('required') ">  
+                   Job Field is required  
+                </span> 
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+                <br>  
+                <input type="text" formControlName='salary' placeholder="Your Salary" class="form-control">  
+                <div *ngIf="dataForm.controls['salary'].touched && !dataForm.controls['salary'].valid">  
+                    <span *ngIf="dataForm.controls['salary'].hasError('required') ">  
+                        Salary is required  
+                        </span> 
+                </div>  
+              </div>    
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+            <br>  
+            <input type="Submit" value="Post Data" [disabled]='!dataForm.valid' class="btn btn-success btn-block">  
+            </div>  
+          </div>  
+          </div>  
+          </form>
+    </div>
+    <div class="tab-pane container fade" id="read">
+        <table class="table table-bordered table-striped table-hover" *ngIf="fetchdata;">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Mobile</th>
+              <th>Job</th>
+              <th>Designation</th>
+            </tr>
+            <tr *ngFor="let item of fetchdata">
+              <td>{{item.id}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.mobile}}</td>
+              <td>{{item.designation}}</td>
+              <td>{{item.salary}}</td>
+            </tr>
+          </table>
+    </div>
+    <div class="tab-pane container fade" id="update">
+        <form [formGroup]='dataForm' (ngSubmit)="updateData(dataForm.value)">  
+            <div class="form-container">  
+            <h3 class="text-center">Update Record</h3><br>
+            <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+              <br> 
+                <input type="text" formControlName='id' name='id' id='id' placeholder="Enter ID For Update" class="form-control">  
+                <div *ngIf="dataForm.controls['id'].touched && !dataForm.controls['id'].valid">  
+                        <span *ngIf="dataForm.controls['id'].hasError('required') ">  
+                        ID is required for update
+                        </span>  
+                </div>  
+            </div>     
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+              <br>
+            <input type="text" formControlName='name' name='name' id='name' placeholder="Your First name" class="form-control">  
+            <div *ngIf="dataForm.controls['name'].touched && !dataForm.controls['name'].valid">  
+                    <span *ngIf="dataForm.controls['name'].hasError('required') ">  
+                    First name is required  
+                    </span>  
+            </div>  
+            </div>  
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+            <br>  
+            <input type="text" formControlName='mobile' placeholder="Your Mobile" class="form-control">  
+            <div *ngIf="dataForm.controls['mobile'].touched && !dataForm.controls['mobile'].valid">  
+                <span *ngIf="dataForm.controls['mobile'].hasError('required') ">  
+                    Mobile Number is required  
+                    </span> 
+            </div>  
+          </div>  
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <br>  
+            <input type="text" formControlName='designation' placeholder="Your Designation" class="form-control"></div>  
+            <div *ngIf="dataForm.controls['designation'].touched && !dataForm.controls['designation'].valid">  
+                <span *ngIf="dataForm.controls['designation'].hasError('required') ">  
+                   Job Field is required  
+                </span> 
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+                <br>  
+                <input type="text" formControlName='salary' placeholder="Your Salary" class="form-control">  
+                <div *ngIf="dataForm.controls['salary'].touched && !dataForm.controls['salary'].valid">  
+                    <span *ngIf="dataForm.controls['salary'].hasError('required') ">  
+                        Salary is required  
+                        </span> 
+                </div>  
+              </div>    
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+            <br>  
+            <input type="Submit" value="Update Data" [disabled]='!dataForm.valid' class="btn btn-success btn-block">  
+            </div>  
+          </div>  
+          </div>  
+          </form>
+    </div>
+    <div class="tab-pane container fade" id="delete">
+        <form [formGroup]='dataForm' (ngSubmit)="deleteData(dataForm.value)">  
+            <div class="form-container">  
+            <h3 class="text-center">Delete Record</h3><br>
+            <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+              <br> 
+                <input type="text" formControlName='id' name='id' id='id' placeholder="Enter ID For Update" class="form-control">  
+                <div *ngIf="dataForm.controls['id'].touched && !dataForm.controls['id'].valid">  
+                        <span *ngIf="dataForm.controls['id'].hasError('required') ">  
+                        ID is required for update
+                        </span>  
+                </div>  
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+            <br>  
+            <input type="Submit" value="Delete Data" class="btn btn-success btn-block">  
+            </div> 
+          </div>  
+        </div>
+      </form> 
+    </div>
+  </div>
+  
+
+</div>

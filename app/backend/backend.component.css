@@ -1,0 +1,12 @@
+.backend{
+    margin-top:5%;
+    padding: 30px;
+    border: 1px solid silver;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px silver;
+}
+.form-container{
+    padding: 30px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px 2px azure;
+}

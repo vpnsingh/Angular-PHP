@@ -1,0 +1,20 @@
+
+<div class="container">
+<h2 class="text-success text-center"><strong>Parent - Child Interaction</strong></h2>  
+<div class="jumbotron">
+<p>This is the parent component</p>
+  
+<app-child [dynamicdata]="dynamicdata" 
+staticdata="This is static data!" (talk)="talkBack($event)"></app-child>
+
+<div *ngFor="let c of chatItems">Child says: {{ c }}</div>
+
+<button type="button" class="btn btn-primary btn-block" (click)="start()">Start</button>
+<button type="button" class="btn btn-danger btn-block" (click)="stop()">Stop</button>
+</div>
+
+<a routerLink = "p1" class="btn btn-warning btn-block">Load Another ChildComponent</a>
+<router-outlet></router-outlet>
+<br>
+{{data}}
+</div>

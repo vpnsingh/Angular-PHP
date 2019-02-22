@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="jumbotron">
+    <p>
+      This is the child component
+    </p>
+  
+    {{ dynamicdata }}<br/>
+    {{ staticdata }}<br/>
+    
+    <input type="text" class="form-control" [(ngModel)]="childmsg" />
+    <button type="button" class="btn btn-warning" (click)="talkBack()">Send Message to Parent</button>
+    </div>
+  </div>
