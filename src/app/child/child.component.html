@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="jumbotron">
+    <h3>Child Component</h3>
+  
+    <p>Dynamic Data : {{ dynamicdata }}</p>
+    <p>Static Data : {{ staticdata }}</p>
+    
+    <input type="text" class="form-control" [(ngModel)]="childmsg" />
+    <br>
+    <button type="button" class="btn btn-success" (click)="talkBack()">Send Message to Parent</button>
+    </div>
+  </div>
