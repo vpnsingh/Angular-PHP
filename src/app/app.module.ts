@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ng6-toastr-notifications';
 
@@ -23,18 +23,11 @@ import { P1Component } from './parent/p1/p1.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    RouterModule.forRoot([
-      {path: 'backend', component: BackendComponent},
-      {path: '', redirectTo:'/backend', pathMatch:'full'},
-      {path: 'parent', component: ParentComponent, children: [
-        {path: 'p1', component: P1Component}
-      ]},
-      { path: 'parent/:data', component: ParentComponent},
-      ])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,21 +11,22 @@ import { ToastrManager } from 'ng6-toastr-notifications';
 })
 export class BackendComponent implements OnInit {
 
-  dataForm: FormGroup;
-  fetchdata;
-  errorMsg;
+    dataForm: FormGroup;
+    fetchdata;
+    errorMsg;
 
-  constructor(private frmbuilder: FormBuilder,private http: HttpClient,private router: Router,private toastr: ToastrManager) {
-    this.dataForm = frmbuilder.group({
-      id: ['', null],
-      name: ['', Validators.required],
-      mobile: ['', Validators.required],
-      designation: ['', Validators.required],
-      salary: ['', Validators.required]
-      });
-    }
+    constructor(private frmbuilder: FormBuilder,private http: HttpClient,private router: Router,private toastr: ToastrManager) {}
 
     ngOnInit() {
+        this.dataForm = this.frmbuilder.group({
+            id: ['', null],
+            name: ['', Validators.required],
+            mobile: ['', Validators.required],
+            designation: ['', Validators.required],
+            salary: ['', Validators.required]
+            });
+            
+        // read data on component initialization    
         this.getData();
     }
 
