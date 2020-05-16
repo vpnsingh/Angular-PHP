@@ -11,6 +11,8 @@ import { ChildComponent } from './child/child.component';
 import { ParentComponent } from './parent/parent.component';
 import { BackendComponent } from './backend/backend.component';
 import { P1Component } from './parent/p1/p1.component';
+import { AComponent } from './a/a.component';
+import { BComponent } from './b/b.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { P1Component } from './parent/p1/p1.component';
     ChildComponent,
     ParentComponent,
     BackendComponent,
-    P1Component
+    P1Component,
+    AComponent,
+    BComponent,
   ],
   imports: [
     BrowserModule,

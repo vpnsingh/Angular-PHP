@@ -7,18 +7,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  childmsg = '';
+  childmsg;
   @Input() dynamicdata: string;
   @Input() staticdata: string;
   @Output() talk: EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  talkBack(say: string) {
+  sendtoParent() {
     this.talk.emit(this.childmsg);
-    console.log(say + this.childmsg);
   }
-
 }

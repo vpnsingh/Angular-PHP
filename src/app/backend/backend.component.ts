@@ -95,6 +95,8 @@ export class BackendComponent implements OnInit {
         this.toastr.warningToastr(msg, 'Alert!');
     }
 
+
+    
     loadSome() {
         this.router.navigate(['parent', 'Hii Scope']);
     }
