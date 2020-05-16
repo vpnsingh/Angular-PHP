@@ -1,4 +1,4 @@
-# Basics
+# Angular PHP CRUD and Parent Child Communication
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
 
@@ -29,10 +29,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Angular-PHP
 Angular with PHP-Mysql Backend (Extra: Parent Child Communication)
-
-Angular - Used to create frond end part which include Navbar, Reactive Forms, Parent-Child Components Interaction..
-PHP - CRUD Operation Scripting Files.
-DB - Mysql stores the data.
 
 <b>steps to run the project</b>
 
